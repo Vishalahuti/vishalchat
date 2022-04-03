@@ -1,13 +1,13 @@
 {
-  "name": "nodeserver",
+  "name": "My chat app",
   "version": "1.0.0",
-  "description": "This is a node server for our iChat application",
+  "description": "This is my chat application",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index",
     "serve": "node index"
   },
-  "author": "Harry",
+  "author": "Vishal Twari",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
