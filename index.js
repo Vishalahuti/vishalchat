@@ -12,8 +12,13 @@ http.listen(PORT, () => {
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/hello.html')
+})
+
+app.get('/chat', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
+
 
 const io = require('socket.io')(http)
 

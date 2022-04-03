@@ -1,6 +1,6 @@
 const socket = io()
 
-// Get DOM elements in respective Js variables
+// Get DOM elements in respective Js variables                          
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp')
 const messageContainer = document.querySelector(".container")
@@ -21,9 +21,16 @@ const append = (message, position)=>{
     }
 }
 
-
+ let name;
 // Ask new user for his/her name and let the server know
-const name = prompt("Enter your name to join");
+/*do {
+    name = prompt('Please enter your name: ')
+} while(!name)
+*/
+
+do{
+ name = prompt("Enter your name to join");
+}while(!name)  ;
 socket.emit('new-user-joined', name);
 
 // If a new user joins, receive his/her name from the server
