@@ -6,7 +6,8 @@ const messageInput = document.getElementById('messageInp')
 const messageContainer = document.querySelector(".container")
 
 // Audio that will play on receiving messages
-var audio = new Audio('ting.mp3');
+var audio1 = new Audio('ting.mp3');
+var audio2 = new Audio('web_whatsapp.mp3');
 
 // Function which will append event info to the contaner
 const append = (message, position)=>{
@@ -16,8 +17,8 @@ const append = (message, position)=>{
     messageElement.classList.add(position);
     messageContainer.append(messageElement);
     messageContainer.scrollTop=messageContainer.scrollHeight;
-    if(position == 'left'||"right"){ 
-        audio.play();
+    if(position == 'right'||'left'){ 
+        audio2.play();
     }
 }
 
@@ -29,13 +30,16 @@ const append = (message, position)=>{
 */
 
 do{
+    audio1.play();
  name = prompt("Enter your name to join");
+ 
 }while(!name)  ;
 socket.emit('new-user-joined', name);
 
 // If a new user joins, receive his/her name from the server
 socket.on('user-joined', name =>{
     append(`${name} joined the chat`, 'right')
+    audio1.play();
 })
 
 // If server sends a message, receive it
@@ -46,6 +50,7 @@ socket.on('receive', data =>{
 // If a user leaves the chat, append the info to the container
 socket.on('left', name =>{
     append(`${name} left the chat`, 'right');
+    audio1.play();
     
 })
 

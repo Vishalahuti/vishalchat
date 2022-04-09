@@ -29,6 +29,9 @@ io.on('connection', socket =>{
     socket.on('new-user-joined', name =>{ 
         users[socket.id] = name;
         socket.broadcast.emit('user-joined', name);
+        for(let i = 0; i < users.length; i++){
+            console.log(users[i]);
+          }
     });
 
     // If someone sends a message, broadcast it to other people
@@ -41,6 +44,7 @@ io.on('connection', socket =>{
         socket.broadcast.emit('left', users[socket.id]);
         delete users[socket.id];
     });
-
+    
 
 })
+
