@@ -36,6 +36,7 @@ scrollbar-width: 100px;
     margin: 17px 12px;
     border: 2px solid black;
     border-radius: 10px;
+    overflow-wrap: break-word;
 }
 .left{
     float: left;
